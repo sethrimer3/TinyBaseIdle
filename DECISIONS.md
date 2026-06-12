@@ -212,7 +212,7 @@ After the breach event, a smaller worm also spawns from the second entrance ever
 
 **Reason**: The game remains browser-first while gaining a local desktop path. Keeping Electron separate from the TypeScript game code avoids changing gameplay state flow, rendering, input, or persistence.
 
-**Tradeoff**: `run-desktop-dev.bat` starts the Webpack dev server in a separate command window and waits briefly before launching Electron. If the dev server takes longer than expected or uses a different port, set `MODSYNTH_TD_DEV_SERVER_URL` before running `npm run desktop:dev`.
+**Tradeoff**: `run-desktop-dev.bat` starts the Webpack dev server in a separate command window and waits briefly before launching Electron. If the dev server takes longer than expected or uses a different port, set `TINY_BASE_IDLE_DEV_SERVER_URL` before running `npm run desktop:dev`.
 
 ---
 
@@ -252,14 +252,6 @@ The global `turretFireCooldownSec` is retained to throttle the fire cadence; the
 **Decision**: `resetRun` now sets `ore = BASE_STARTING_ORE + oreBonus`, where `BASE_STARTING_ORE = 20`, instead of starting at 0 (plus meta bonus). Conveyors and extractors cost 0 ore.
 
 **Reason**: With deposits no longer auto-delivering ore, the player needs starting capital to place at least one extractor and a short conveyor chain before any income arrives. 20 ore is enough to build one turret (12 ore) with change to spare for conveyors, or to build a short route first and accumulate ammo before the first wave.
-
----
-
-## D-025: ModSynth TD Is the Sole Game Implementation
-
-**Decision**: ModSynth TD boots directly into the synth-defense implementation. The former prototype implementation and version selector were removed after the projects split into separate repositories.
-
-**Reason**: Keeping the old game in this repository created misleading UI, maintenance overhead, and stale product references.
 
 ---
 

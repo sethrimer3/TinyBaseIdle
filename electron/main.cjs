@@ -1,9 +1,9 @@
 const { app, BrowserWindow } = require('electron');
 const path = require('path');
 
-const devServerUrl = process.env.MODSYNTH_TD_DEV_SERVER_URL || 'http://127.0.0.1:8080';
-const isDevMode = process.argv.includes('--dev') || process.env.MODSYNTH_TD_ELECTRON_DEV === '1';
-const windowIconPath = path.join(__dirname, '..', 'ASSETS', 'icon', 'ModSynthTD_icon.ico');
+const devServerUrl = process.env.TINY_BASE_IDLE_DEV_SERVER_URL || 'http://127.0.0.1:8080';
+const isDevMode = process.argv.includes('--dev') || process.env.TINY_BASE_IDLE_ELECTRON_DEV === '1';
+const windowIconPath = path.join(__dirname, '..', 'ASSETS', 'icon', 'TinyBaseIdle_icon.ico');
 
 function createMainWindow() {
   const mainWindow = new BrowserWindow({
@@ -12,7 +12,7 @@ function createMainWindow() {
     minWidth: 960,
     minHeight: 540,
     backgroundColor: '#05070d',
-    title: 'ModSynth TD',
+    title: 'Tiny Base Idle',
     icon: windowIconPath,
     webPreferences: {
       contextIsolation: true,

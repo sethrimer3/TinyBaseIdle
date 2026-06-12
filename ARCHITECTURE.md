@@ -1,6 +1,6 @@
 # Architecture Overview
 
-Title: **ModSynth TD**
+Working title: **Neon Mote Defense**
 
 This document describes the current system structure and data flow for the prototype. It should be updated whenever systems are significantly changed.
 
@@ -29,14 +29,13 @@ Commands:
 
 ## 2. Module Structure
 
-The application boots directly into the ModSynth TD synth-defense implementation.
+The prototype is currently a single-module design (one `game.ts` file). As complexity grows, systems should be separated into their own modules.
 
 ```
 src/
-  main.ts                    — entry point
-  version2.ts                — current ModSynth TD game
-  version2-*.ts              — audio, enemies, waves, and rack wiring
-  styles.css                 — shared UI styles
+  main.ts         — entry point, imports game and CSS
+  game.ts         — all game systems (monolithic prototype)
+  styles.css      — all UI styles
 ```
 
 Desktop runtime:
@@ -51,7 +50,7 @@ Desktop runtime:
 
 ### 3.1 Constants and Configuration
 
-Game tuning and state live in `version2.ts` and its focused support modules.
+All tuning values are `const` declarations at the top of `game.ts`. Structure costs, damage values, spawn rates, and radar thresholds are named constants so they can be changed without searching for magic numbers.
 
 Key constants:
 - `tileSizePx` — native pixel size of one build tile (12)

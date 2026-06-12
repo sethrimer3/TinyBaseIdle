@@ -1,4 +1,4 @@
 import './styles.css';
-import { startVersion2 } from './version2';
+import { startGame } from './game';
 
-startVersion2();
+startGame();

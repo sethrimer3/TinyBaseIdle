@@ -1,4 +1,4 @@
-# ModSynth TD TODO
+# TinyBaseIdle TODO
 
 This file is the condensed implementation checklist for the project. Keep `design.md` focused on vision, design intent, and system explanations. Track concrete implementation work here.
 
@@ -102,7 +102,6 @@ AI agents should maintain this file as part of normal implementation work.
 
 ## Maintenance
 
-- [x] Remove the old prototype and keep ModSynth TD as the sole game implementation.
 - [ ] Move checklist-style progress tracking out of `design.md` over time.
 - [ ] Keep this file ordered by implementation priority.
 - [ ] When a feature is implemented, mark it here and update `design.md` only if the actual design changed.

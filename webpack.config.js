@@ -23,14 +23,6 @@ module.exports = {
       {
         test: /\.(ttf|woff|woff2|eot|otf)$/i,
         type: 'asset/resource'
-      },
-      {
-        test: /\.(png|jpg|gif|svg|webp)$/i,
-        type: 'asset/resource'
-      },
-      {
-        test: /\.(mp3|wav|ogg|flac)$/i,
-        type: 'asset/resource'
       }
     ]
   },
@@ -45,7 +37,7 @@ module.exports = {
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <meta name="theme-color" content="#05070d" />
-    <title>ModSynth TD</title>
+    <title>Tiny Base Idle</title>
   </head>
   <body>
     <div id="app"></div>
