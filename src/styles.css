@@ -367,7 +367,7 @@ body {
   letter-spacing: 0.05em;
 }
 
-/* ── Nine-slot panel ──────────────────────────────────────────────────────── */
+/* ── World map panel ──────────────────────────────────────────────────────── */
 
 .slotsPanel {
   padding: 0.25rem 0 0.5rem;
@@ -389,35 +389,88 @@ body {
   gap: 0.35rem;
 }
 
-.slotButton {
+/* ── World cards ─────────────────────────────────────────────────────────── */
+
+.worldCard {
   border-radius: 6px;
-  padding: 0.3rem 0.2rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.12s, box-shadow 0.12s;
+}
+
+.worldCard--unlocked {
+  border: 1px solid var(--world-primary, #27e0ff);
+  background: #04080e;
+  cursor: pointer;
+  box-shadow: 0 0 6px color-mix(in srgb, var(--world-glow, #00ccff) 18%, transparent);
+}
+
+.worldCard--unlocked:hover {
+  border-color: color-mix(in srgb, var(--world-primary, #27e0ff) 70%, white);
+  box-shadow: 0 0 14px color-mix(in srgb, var(--world-glow, #00ccff) 35%, transparent);
+}
+
+.worldCard--unlocked:active {
+  box-shadow: 0 0 5px color-mix(in srgb, var(--world-glow, #00ccff) 18%, transparent);
+}
+
+.worldCard--locked {
+  border: 1px solid #1a2a3a;
+  background: #040810;
+  cursor: default;
+}
+
+.worldCard--secret {
+  border: 1px solid #2a1a3a;
+  background: #060208;
+  cursor: default;
+}
+
+.worldPreview {
+  display: block;
+  width: 100%;
+  height: auto;
+  image-rendering: pixelated;
+}
+
+.worldCardFooter {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  gap: 0.08rem;
-  min-height: 2.6rem;
+  gap: 0.04rem;
+  padding: 0.14rem 0.2rem 0.18rem;
 }
 
-.slotActive {
-  border: 1px solid #33ffbb;
-  background: #0a1f18;
-  color: #33ffbb;
+.worldName {
+  font-size: 0.56rem;
+  font-weight: 800;
+  color: var(--world-primary, #27e0ff);
+  letter-spacing: 0.02em;
 }
 
-.slotLocked {
-  border: 1px solid #1a2a3a;
-  background: #080e18;
-  color: #2a3a4a;
+.worldSummary {
+  font-size: 0.46rem;
+  color: #4d7a8a;
+  text-align: center;
+  letter-spacing: 0.01em;
 }
 
-.slotName {
-  font-size: 0.6rem;
+.worldLockLabel {
+  font-size: 0.5rem;
   font-weight: 700;
+  color: #2a3a4a;
+  text-align: center;
+  padding: 0.12rem 0 0.14rem;
+  letter-spacing: 0.07em;
 }
 
-.slotStatus {
-  font-size: 0.52rem;
-  opacity: 0.8;
+@keyframes worldCardShake {
+  0%, 100% { transform: translateX(0); }
+  25%       { transform: translateX(-3px); }
+  75%       { transform: translateX(3px); }
+}
+
+.worldCard--shake {
+  animation: worldCardShake 0.22s ease-in-out;
 }

@@ -1,3 +1,5 @@
+import { buildWorldMapPanel } from './v2/ui/worldmap';
+
 type Structure = 'empty' | 'wall' | 'turret' | 'radar' | 'crusher' | 'gatling' | 'conveyor' | 'extractor' | 'splitter' | 'cannon' | 'repairer';
 type Tool = 'wall' | 'turret' | 'radar' | 'erase' | 'repair' | 'crusher' | 'gatling' | 'conveyor' | 'extractor' | 'splitter' | 'cannon' | 'repairer';
 type BuildCategory = 'mining' | 'turrets' | 'defense' | 'tech' | 'repair' | 'erase' | 'logistics';
@@ -433,31 +435,12 @@ upgradePanelElement.append(metaMenuHeaderElement, upgradesPanelLabelElement, upg
 const statusBarElement = document.createElement('div');
 statusBarElement.className = 'statusBar';
 
-// Nine-slot placeholder DOM
+// World map panel (replaces nine-slot placeholder)
 const slotsPanelElement = document.createElement('div');
 slotsPanelElement.className = 'slotsPanel';
-
-const slotsPanelLabelElement = document.createElement('div');
-slotsPanelLabelElement.className = 'slotsPanelLabel';
-slotsPanelLabelElement.textContent = 'BASE SLOTS';
-
-const slotsGridElement = document.createElement('div');
-slotsGridElement.className = 'slotsGrid';
-
-for (let slotIndex = 0; slotIndex < 9; slotIndex += 1) {
-  const slotBtn = document.createElement('div');
-  slotBtn.className = slotIndex === 0 ? 'slotButton slotActive' : 'slotButton slotLocked';
-  const slotNameSpan = document.createElement('span');
-  slotNameSpan.className = 'slotName';
-  slotNameSpan.textContent = `Slot ${slotIndex + 1}`;
-  const slotStatusSpan = document.createElement('span');
-  slotStatusSpan.className = 'slotStatus';
-  slotStatusSpan.textContent = slotIndex === 0 ? 'ACTIVE' : 'LOCKED';
-  slotBtn.append(slotNameSpan, slotStatusSpan);
-  slotsGridElement.append(slotBtn);
-}
-
-slotsPanelElement.append(slotsPanelLabelElement, slotsGridElement);
+buildWorldMapPanel(slotsPanelElement, () => {
+  gameFieldElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+});
 
 gameFieldElement.append(canvasElement, hudElement);
 gameViewElement.append(gameFieldElement, toolbarElement, statusBarElement);
